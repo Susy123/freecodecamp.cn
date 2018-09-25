@@ -11,7 +11,8 @@ window.common = (function({ common = { init: [] }}) {
         if (magiVal < 0) {
           magiVal = 0;
         }
-        $('.editorScrollDiv').css('height', magiVal - 50 + 'px');
+        $('.editorScrollDiv').css('height', magiVal - 50 - 55 + 'px');
+        $('.output-container').css('height', magiVal - 50 - 55 + 'px');
       }
 
       magiVal = $(window).height() - $('.navbar').height();
@@ -19,7 +20,8 @@ window.common = (function({ common = { init: [] }}) {
       if (magiVal < 0) {
         magiVal = 0;
       }
-
+      $('.editorScrollDiv').css('height', magiVal - 50 - 55 + 'px');
+      $('.output-container').css('height', magiVal - 50 - 55 + 'px');
       $('.scroll-locker')
         .css('min-height', $('.editorScrollDiv').height())
         .css('height', magiVal - 50);

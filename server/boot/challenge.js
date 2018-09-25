@@ -29,13 +29,13 @@ const isBeta = !!process.env.BETA;
 const log = debug('fcc:challenges');
 const challengesRegex = /^(bonfire|waypoint|zipline|basejump|checkpoint)/i;
 const challengeView = {
-  0: 'challenges/showHTML',
-  1: 'challenges/showJS',
-  2: 'challenges/showVideo',
-  3: 'challenges/showZiplineOrBasejump',
+  0: 'challenges/showHTML', // 有输出框 html
+  1: 'challenges/showJS', // 无输出框 basic js 在左下角有一个codeOutPut
+  2: 'challenges/showVideo', // 视频形式介绍 git
+  3: 'challenges/showZiplineOrBasejump', // 视频 Visualize Data with a Bar Chart
   4: 'challenges/showZiplineOrBasejump',
-  5: 'challenges/showBonfire',
-  7: 'challenges/showStep'
+  5: 'challenges/showBonfire', // 无输出框 Validate US Telephone Numbers在左下角有一个codeOutPut
+  7: 'challenges/showStep' // 纯介绍
 };
 
 function isChallengeCompleted(user, challengeId) {

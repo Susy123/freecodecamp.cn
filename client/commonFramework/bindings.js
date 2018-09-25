@@ -25,6 +25,8 @@ window.common = (function(global) {
     var $marginFix = $('.innerMarginFix');
     $marginFix.css('min-height', $marginFix.height());
 
+    common.runBtn$ = Observable.fromEvent($('#runPythonButton'), 'click');
+
     common.submitBtn$ = Observable.fromEvent($('#submitButton'), 'click');
 
     common.resetBtn$ = Observable.fromEvent($('#reset-button'), 'click');
@@ -67,7 +69,47 @@ window.common = (function(global) {
         $(this).children().children('input').trigger('click');
       }
     });
-
+    // // 运行程序
+    // $('#runPythonButton').on('click', function() {
+    //   var data = {
+    //     code: common.editor.getValue()
+    //   };
+    //   $.ajax({
+    //     url: '/python/run',
+    //     async: true,
+    //     type: 'POST',
+    //     data: JSON.stringify(data),
+    //     contentType: 'application/json',
+    //     dataType: 'json'
+    //   })
+    //     .success(function(response) {
+    //       document.getElementById('output-text').innerHTML = response.output;
+    //     })
+    //     .fail(function(response) {
+    //       document.getElementById('output-text').innerHTML = response.output;
+    //     });
+    // });
+    // 提交程序
+    // $('#submitButton').on('click', function() {
+    //   // common.editor.getValue()
+    //   var data = {
+    //     code: common.editor.getValue()
+    //   };
+    //   $.ajax({
+    //     url: '/python/run',
+    //     async: true,
+    //     type: 'POST',
+    //     data: JSON.stringify(data),
+    //     contentType: 'application/json',
+    //     dataType: 'json'
+    //   })
+    //     .success(function(response) {
+    //       document.getElementById('output-text').innerHTML = response.output;
+    //     })
+    //     .fail(function(response) {
+    //       document.getElementById('output-text').innerHTML = response.output;
+    //     });
+    // });
 
     // video challenge submit
     $('#next-courseware-button').on('click', function() {

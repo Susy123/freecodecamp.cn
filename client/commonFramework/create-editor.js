@@ -38,11 +38,11 @@ window.common = (function(global) {
 
   editor.setSize('100%', 'auto');
 
-  common.editorExecute$ = new Subject();
-  common.editorKeyUp$ = Observable.fromEventPattern(
-    (handler) => editor.on('keyup', handler),
-    (handler) => editor.off('keyup', handler)
-  );
+  // common.editorExecute$ = new Subject();
+  // common.editorKeyUp$ = Observable.fromEventPattern(
+  //   (handler) => editor.on('keyup', handler),
+  //   (handler) => editor.off('keyup', handler)
+  // );
 
   editor.setOption('extraKeys', {
     Tab: function(cm) {

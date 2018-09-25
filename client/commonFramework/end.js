@@ -13,49 +13,49 @@ $(document).ready(function() {
   });
 
   // only run if editor present
-  if (common.editor.getValue) {
-    const code$ = common.editorKeyUp$
-      .debounce(750)
-      .map(() => common.editor.getValue())
-      .distinctUntilChanged()
-      .shareReplay();
+  // if (common.editor.getValue) {
+  //   const code$ = common.editorKeyUp$
+  //     .debounce(750)
+  //     .map(() => common.editor.getValue())
+  //     .distinctUntilChanged()
+  //     .shareReplay();
 
-    // update storage
-    code$.subscribe(
-        code => {
-          common.codeStorage.updateStorage(common.challengeName, code);
-          common.codeUri.querify(code);
-        },
-        err => console.error(err)
-      );
+  //   // update storage
+  //   code$.subscribe(
+  //       code => {
+  //         common.codeStorage.updateStorage(common.challengeName, code);
+  //         common.codeUri.querify(code);
+  //       },
+  //       err => console.error(err)
+  //     );
 
-    code$
-      // only run for HTML
-      .filter(() => common.challengeType === challengeTypes.HTML)
-      .flatMap(code => {
-        return common.detectUnsafeCode$(code)
-          .map(() => {
-            const combinedCode = common.head + code + common.tail;
+  //   code$
+  //     // only run for HTML
+  //     .filter(() => common.challengeType === challengeTypes.HTML)
+  //     .flatMap(code => {
+  //       return common.detectUnsafeCode$(code)
+  //         .map(() => {
+  //           const combinedCode = common.head + code + common.tail;
 
-            return addLoopProtect(combinedCode);
-          })
-          .flatMap(code => common.updatePreview$(code))
-          .flatMap(() => common.checkPreview$({ code }))
-          .catch(err => Observable.just({ err }));
-      })
-      .subscribe(
-        ({ err }) => {
-          if (err) {
-            console.error(err);
-            return common.updatePreview$(`
-              <h1>${err}</h1>
-            `).subscribe(() => {});
-          }
-          return null;
-        },
-        err => console.error(err)
-      );
-  }
+  //           return addLoopProtect(combinedCode);
+  //         })
+  //         .flatMap(code => common.updatePreview$(code))
+  //         .flatMap(() => common.checkPreview$({ code }))
+  //         .catch(err => Observable.just({ err }));
+  //     })
+  //     .subscribe(
+  //       ({ err }) => {
+  //         if (err) {
+  //           console.error(err);
+  //           return common.updatePreview$(`
+  //             <h1>${err}</h1>
+  //           `).subscribe(() => {});
+  //         }
+  //         return null;
+  //       },
+  //       err => console.error(err)
+  //     );
+  // }
 
   common.resetBtn$
     .doOnNext(() => {
@@ -84,8 +84,33 @@ $(document).ready(function() {
       }
     );
 
+  common.runBtn$
+    .flatMap(() => {
+      common.appendToOutputDisplay('\n// testing challenge...');
+      return common.executeChallenge$()
+        .map(({ tests, ...rest }) => {
+          const solved = tests.every(test => !test.err);
+          return { ...rest, tests, solved };
+        })
+        .catch(err => Observable.just({ err }));
+    })
+    .subscribe(
+      ({ err, output, tests }) => {
+        if (err) {
+          console.error(err);
+        }
+        document.getElementById('output-text').innerHTML = output;
+        common.displayTestResults(tests);
+        return null;
+      },
+      ({ err }) => {
+        console.error(err);
+        document.getElementById('output-text').innerHTML = err;
+      }
+    );
+
   Observable.merge(
-    common.editorExecute$,
+    // common.editorExecute$,
     common.submitBtn$
   )
     .flatMap(() => {
@@ -101,14 +126,16 @@ $(document).ready(function() {
       ({ err, solved, output, tests }) => {
         if (err) {
           console.error(err);
-          if (common.challengeType === common.challengeTypes.HTML) {
-            return common.updatePreview$(`
-              <h1>${err}</h1>
-            `).first().subscribe(() => {});
-          }
-          return common.updateOutputDisplay('' + err);
+          // if (common.challengeType === common.challengeTypes.HTML) {
+          //   return common.updatePreview$(`
+          //     <h1>${err}</h1>
+          //   `).first().subscribe(() => {});
+          // }
+          // // return common.updateOutputDisplay('' + err);
+          // document.getElementById('output-text').innerHTML = err;
         }
-        common.updateOutputDisplay(output);
+        // common.updateOutputDisplay(output);
+        document.getElementById('output-text').innerHTML = output;
         common.displayTestResults(tests);
         if (solved) {
           common.showCompletion();
@@ -117,7 +144,8 @@ $(document).ready(function() {
       },
       ({ err }) => {
         console.error(err);
-        common.updateOutputDisplay('' + err);
+        // common.updateOutputDisplay('' + err);
+        document.getElementById('output-text').innerHTML = err;
       }
     );
 

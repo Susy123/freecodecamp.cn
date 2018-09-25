@@ -1,0 +1,70 @@
+{
+  "name": "背景介绍",
+  "order": 1,
+  "time": "15 miniutes",
+  "helpRoom": "chinese",
+  "challenges": [
+    {
+      "id": "560add10cb82ac38a17513be",
+      "title": "AI人工智能",
+      "description": [
+        [
+          "/images/jiqiren.png",
+          "",
+          "人工智能（Artificial Intelligence），英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。人工智能是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式作出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。",
+          ""
+        ],
+        [
+          "/images/alphago.png",
+          "",
+          "人工智能的概念很宽泛，按其实力可分为弱人工智能与强人工智能，前者只擅自单方面的人工智能，比如Google旗下的深度学习团队Deepmind开发的人工智能围棋软件AlphaGo，比如手机上的指纹识别模块，比如苹果手机的人脸识别功能，比如苹果智能语音助手siri，比如无人驾驶；后者则在各方面都能和人类比肩甚至超越人类，能够进行思考、抽象思维、自主学习并解决问题，但目前暂未成功实现强人工智能。",
+          ""
+        ]
+      ],
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7
+    },
+    {
+      "id": "560add37cb82ac38a17513bf",
+      "title": "Python",
+      "description": [
+        [
+          "/images/python.png",
+          "",
+          "目前市面上大部分的人工智能的代码都是使用Python语言来编写，这也将吸引更多的人在此领域学习并使用Python，进一步巩固Python数据分析和AI第一语言的地位，因此我们将通过Python来学习人工智能。",
+          ""
+        ],
+        [
+          "/images/python.png",
+          "",
+          "Python的英音为 ['paɪθən]，读“派森”，美音为[ˈpaɪˌθɑn, -θən]，读“派桑”，国内程序员一般都读“派森”，读法各凭喜好，能听明白即可。",
+          ""
+        ],
+        [
+          "/images/python.png",
+          "",
+          "我们使用的计算机（俗称电脑）由硬件与软件两大系统组成，能够按照程序的运行，对数据进行高速计算并存储。计算机无法直接理解人类的语言，因此需要一种计算机能够理解、又便于人类编写的语言，这便是编程语言。目前主流的编程语言有Java、C、C++、PHP、Visual Basic、Python等等，人类通过编程语言编写出程序，计算机将之翻译成计算机可执行的机器语言并执行，以实现人类的目的。",
+          ""
+        ],
+        [
+          "/images/python.png",
+          "",
+          "相较于其他编程语言，Python具有如下特性：多平台运行（macOS、windows、Linux）；配置简单（安装打包集合Anaconda，预装conda、python、众多packages、科学计算工具等等）；语法简单（学了就知道）；有强大的数据处理库（numpy、scipy、pandas、matplotlib）；有丰富的第三方库。Python自1991年发展至今，流行度逐年提高。",
+          ""
+        ],
+        [
+          "/images/python.png",
+          "",
+          "Python目前有两个大版本，Python2和Python3，最新版分别为2.7.13和3.7.0，Python3.0于2008年12月3日正式发布，Python3现已是主流版本，本课程使用Python3。人生苦短，我用Python。",
+          ""
+        ]
+      ],
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7
+    }
+  ]
+}

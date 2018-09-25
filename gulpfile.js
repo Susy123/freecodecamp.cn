@@ -48,7 +48,7 @@ var Rx = require('rx'),
 Rx.config.longStackSupport = true;
 
 var __DEV__ = !yargs.argv.p;
-//var __DEV__ = false;
+// var __DEV__ = false;
 console.log(__DEV__);
 var reloadDelay = 1000;
 var reload = sync.reload;

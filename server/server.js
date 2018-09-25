@@ -16,9 +16,17 @@ var getSocialProvider = require('./utils/auth').getSocialProvider;
 var getUsernameFromProvider = require('./utils/auth').getUsernameFromProvider;
 var generateKey =
   require('loopback-component-passport/lib/models/utils').generateKey;
-
+var proxy = require('http-proxy-middleware');
 var isBeta = !!process.env.BETA;
 var app = loopback();
+
+app.use('/python', proxy({
+  'target': 'http://127.0.0.1:5000/',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/python': ''           // remove base path
+}
+}));
 
 expressState.extend(app);
 app.set('state namespace', '__fcc__');
@@ -32,6 +40,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(loopback.token());
 app.disable('x-powered-by');
+
 
 // adds passport initialization after session middleware phase is complete
 passportConfigurator.init();
@@ -107,6 +116,7 @@ app.start = _.once(function() {
     }
   });
 });
+
 
 module.exports = app;
 

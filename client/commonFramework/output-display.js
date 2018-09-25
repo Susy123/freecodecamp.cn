@@ -38,6 +38,13 @@ window.common = (function(global) {
 
   codeOutput.setSize('100%', '100%');
 
+  common.updateOutputDisplayNew = function updateOutputDisplayNew(str = '') {
+    if (typeof str !== 'string') {
+      str = JSON.stringify(str);
+    }
+    doc.getElementById('output-text').innerHTML = '111\n333\n';
+    return str;
+  };
   common.updateOutputDisplay = function updateOutputDisplay(str = '') {
     if (typeof str !== 'string') {
       str = JSON.stringify(str);

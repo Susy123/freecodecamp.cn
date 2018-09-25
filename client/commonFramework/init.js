@@ -85,6 +85,17 @@ window.common = (function(global) {
     var regexp = new RegExp('//' + line + common.salt);
     return code.replace(regexp, text);
   };
+  /* eslint-disable no-unused-vars */
+  common.reassemblePyTest = function reassemblePyTest(output = '', test, index) {
+    var outputList = output.split('\n');
+    var testAssert = test.split(',')[0];
+    // testAssert = 'assert.isTrue("{output}"=="Hello World")';
+    var regexp = new RegExp('{output}');
+    return testAssert.replace(regexp, outputList[index]);
+    // var regexp = new RegExp('//' + line + common.salt);
+    // return code.replace(regexp, text);
+    // return 'assert.isTrue(true)';
+  };
 
   common.getScriptContent$ = function getScriptContent$(script) {
     return Observable.create(function(observer) {

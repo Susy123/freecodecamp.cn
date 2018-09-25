@@ -1,0 +1,27 @@
+{
+    "name": "第一个程序",
+    "order": 2,
+    "time": "5 hours",
+    "helpRoom": "chinese",
+    "challenges": [
+      {
+        "id": "bd7123c8c441eddfaeb5bdef",
+        "title": "Hello World",
+        "description": [
+          "程序员界有一个入门仪式，",
+          "就是在显示界面输出<code>Hello World</code>",
+          "Python中的输出语法为：<code>print('xxx')</code>",
+          "xxx为你想要显示的内容",
+          "任务：在界面中间的输入框中输入代码，使得界面右侧显示<code>Hello, World!</code>。"
+        ],
+        "challengeSeed": [
+          "print('')"
+        ],
+        "tests": [
+          "assert.isTrue('{output}'=='Hello World'), 'message: 你的 <code>print</code> 函数参数应该包含文本 \"Hello World\".');"
+        ],
+        "type": "waypoint",
+        "challengeType": 0
+      }
+    ]
+}

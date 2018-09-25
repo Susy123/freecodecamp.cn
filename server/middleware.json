@@ -27,7 +27,7 @@
   "auth": {
   },
   "parse": {
-    "body-parser#json": {},
+   
     "body-parser#urlencoded": {
       "params": { "extended": true }
     },
