@@ -1,3 +1,4 @@
+require('babel-register');
 require('dotenv').load();
 var pmx = require('pmx');
 pmx.init();
