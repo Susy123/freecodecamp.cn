@@ -99,6 +99,8 @@
     "passport-linkedin-oauth2": "^1.2.1",
     "passport-local": "^1.0.0",
     "passport-oauth": "^1.0.0",
+    "passport-qq": "^0.1.0",
+    "passport-qq2015-fix": "^2.0.1",
     "passport-twitter": "^1.0.3",
     "pmx": "~0.5.5",
     "react": "~0.14.3",

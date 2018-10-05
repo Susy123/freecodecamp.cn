@@ -37,6 +37,12 @@
       "type": "boolean",
       "default": false
     },
+    "website": {
+      "type": "string"
+    },
+    "githubProfile": {
+      "type": "string"
+    },
     "githubId": {
       "type": "string"
     },

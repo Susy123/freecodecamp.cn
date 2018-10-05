@@ -1,5 +1,6 @@
 require('babel-register');
 require('dotenv').load();
+var bodyParse = require('body-parser');
 var pmx = require('pmx');
 pmx.init();
 
@@ -28,7 +29,7 @@ app.use('/python', proxy({
     '^/python': ''           // remove base path
 }
 }));
-
+app.use(bodyParse.json());
 expressState.extend(app);
 app.set('state namespace', '__fcc__');
 

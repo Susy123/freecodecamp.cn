@@ -530,9 +530,9 @@ module.exports = function(app) {
 
   function completedChallenge(req, res, next) {
     req.checkBody('id', 'id must be a ObjectId').isMongoId();
-    req.checkBody('name', 'name must be at least 3 characters')
-      .isString()
-      .isLength({ min: 3 });
+    // req.checkBody('name', 'name must be at least 3 characters')
+    //   .isString()
+    //   .isLength({ min: 3 });
     req.checkBody('challengeType', 'challengeType must be an integer')
       .isNumber();
 

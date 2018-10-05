@@ -25,6 +25,13 @@ module.exports = {
     passReqToCallback: true
   },
 
+  qq: {
+    clientID: process.env.QQ_ID,
+    clientSecret: process.env.QQ_SECRET,
+    callbackURL: 'http://qzonestyle.gtimg.cn/qzone/openapi/redirect-1.0.1.html', // '/auth/qq/callback',
+    passReqToCallback: true
+  },
+
   github: {
     clientID: process.env.GITHUB_ID,
     clientSecret: process.env.GITHUB_SECRET,
